@@ -1,55 +1,29 @@
-package com.api.parkingcontrol.models;
+package com.api.parkingcontrol.dtos;
 
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
-
-import javax.persistence.*;
-import java.io.Serializable;
+import javax.persistence.Column;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
-@Entity
-@Table(name="TB_PARKING_SPOT")
-public class ParkingSpotModel implements Serializable{
-private static final long serialVersionUID = 1L;
+public class ParkingSpotDto {
 
-@Id
-@GeneratedValue(strategy = GenerationType.AUTO)
-private UUID id;
-
-@Column(nullable = false, unique = true, length = 10)
-private String parkingSpotNumber;
-
-@Column(nullable = false, unique = true, length = 7)
-private String licensePlateCar;
-
-@Column(nullable = false, length = 70)
-private String brandCar;
-
-@Column(nullable = false, length = 70)
-private String modelCar;
-
-@Column(nullable = false, length = 70)
-private String colorCar;
-
-@Column(nullable = false)
-private LocalDateTime registrationDate;
-
-@Column(nullable = false, length = 130)
-private String responsibleName;
-
-@Column(nullable = false, length = 30)
-private String apartment;
-
-@Column(nullable = false, length = 30)
-private String Block;
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
+    @NotBlank
+    private String parkingSpotNumber;
+    @NotBlank
+    @Size(max = 7)
+    private String licensePlateCar;
+    @NotBlank
+    private String brandCar;
+    @NotBlank
+    private String modelCar;
+    @NotBlank
+    private String colorCar;
+    @NotBlank
+    private String responsibleName;
+    @NotBlank
+    private String apartment;
+    @NotBlank
+    private String Block;
 
     public String getParkingSpotNumber() {
         return parkingSpotNumber;
@@ -91,14 +65,6 @@ private String Block;
         this.colorCar = colorCar;
     }
 
-    public LocalDateTime getRegistrationDate() {
-        return registrationDate;
-    }
-
-    public void setRegistrationDate(LocalDateTime registrationDate) {
-        this.registrationDate = registrationDate;
-    }
-
     public String getResponsibleName() {
         return responsibleName;
     }
@@ -122,7 +88,4 @@ private String Block;
     public void setBlock(String block) {
         Block = block;
     }
-
 }
-
-
