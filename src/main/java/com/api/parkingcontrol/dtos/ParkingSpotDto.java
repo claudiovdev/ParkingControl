@@ -1,9 +1,7 @@
 package com.api.parkingcontrol.dtos;
 
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-
 
 public class ParkingSpotDto {
 
@@ -23,7 +21,7 @@ public class ParkingSpotDto {
     @NotBlank
     private String apartment;
     @NotBlank
-    private String Block;
+    private String block;
 
     public String getParkingSpotNumber() {
         return parkingSpotNumber;
@@ -82,10 +80,10 @@ public class ParkingSpotDto {
     }
 
     public String getBlock() {
-        return Block;
+        return block;
     }
 
     public void setBlock(String block) {
-        Block = block;
+        this.block = block;
     }
 }
