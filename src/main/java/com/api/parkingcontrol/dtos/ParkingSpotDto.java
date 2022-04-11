@@ -1,9 +1,9 @@
 package com.api.parkingcontrol.dtos;
 
-import javax.persistence.Column;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.time.LocalDateTime;
+
 
 public class ParkingSpotDto {
 
